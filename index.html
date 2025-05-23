@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iniciar sesión</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="IMG/logo.png" alt="Logo del sitio" class="logo">
+  </header>
+
+  <div class="page-wrapper">
+    <div class="full-page-container">
+      <div class="form-container">
+        <h1>Iniciar sesión</h1>
+        <form id="login-form">
+          <input type="email" id="login-email" placeholder="Correo electrónico" required />
+          <input type="password" id="login-password" placeholder="Contraseña" required />
+          <button type="submit" class="submit-btn">Entrar</button>
+           <a href="https://gabbho456.github.io/proyecto50-/" class="btn bounce-in">Quieres ver mi proyecto??</a>
+        </form>
+        <p>¿No tienes una cuenta? <a href="iniciar sesion.html">Regístrate</a></p>
+      </div>
+    </div>
+
+    <footer>
+    <p>&copy;2025 Tu página. Todos los derechos reservados.</p>
+    <div class="footer-links">
+      <a href="https://nelkodev.com/blog/que-es-un-faq-o-preguntas-frecuentes-implementacion-efectiva-y-ejemplos/">Preguntas frecuentes</a>
+      <a href="https://www.microsoft.com/es-mx/microsoft-365/business/terms-and-conditions?msockid=13ffd6f4baaf6203326ac52ebbb36368">Condiciones de Servicio</a>
+      <a href="https://www.microsoft.com/es-mx/digitalsafety/policies?msockid=13ffd6f4baaf6203326ac52ebbb36368">Política de Privacidad</a>
+      <a href="https://support.microsoft.com/es-es/microsoft-edge/ver-cookies-en-microsoft-edge-a7d95376-f2cd-8e4a-25dc-1de753474879">Cookies</a>
+      <a href="contacto.html">Contáctanos</a>
+    </div>
+  </footer>
+
+  <!-- Script al final para que cargue después del DOM -->
+  <script>
+    // Autocompleta si venimos del formulario de registro
+    window.onload = function () {
+      const user = localStorage.getItem("usuario");
+      const pass = localStorage.getItem("contrasena");
+      if (user && pass) {
+        document.getElementById("login-email").value = user + "@email.com";
+        document.getElementById("login-password").value = pass;
+      }
+    };
+
+    // Redirige al siguiente formulario si las credenciales son correctas
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+
+      if (email === "gabrielportillo456@gmail.com" && password === "burrito1") {
+        // Redirige a otro formulario
+        window.location.href = "aver.html";
+      } else {
+        alert("Correo o contraseña incorrectos.");
+      }
+    });
+  </script>
+</body>
+</html>
